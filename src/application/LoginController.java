@@ -29,7 +29,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class LoginController implements Initializable {
-	
+
 	@FXML
 	private Label warning;
 	@FXML
@@ -40,100 +40,123 @@ public class LoginController implements Initializable {
 	private ComboBox<String> type;
 	@FXML
 	private VBox loginVBox, signupVBox;
-	
-	private String[] accountType = {"Admin", "Receptionist", "Doctor", "Patient"};
-	
+
+	private String[] accountType = { "Admin", "Receptionist", "Doctor", "Patient" };
+
 	Authentication authentication = new Authentication();
-	
+
 	Connection conn;
-	
+
 	PreparedStatement preparedStatement = null;
-	
+
 	public LoginController() {
 		conn = DB.DBConnection();
-		if(conn == null) 
-		{
+		if (conn == null) {
 			System.exit(1);
 		}
-		
-		if(!authentication.isDBConnected())
-		{
+
+		if (!authentication.isDBConnected()) {
 			warning.setText("Database not Connected");
 		}
 	}
-	
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		
+
 		signupVBox.setVisible(false);
-		
+
 		type.getItems().addAll(accountType);
-		
+
 	}
-	
+
 	public void userLogin(ActionEvent event) throws IOException {
-	    try {
-	        switch (type.getValue()) {
-	            case "Admin":
-	                initializeDashboard("/fxml/AdminDashboard.fxml", "Admin Dashboard", event);
-	                break;
-	            case "Doctor":
-	                initializeDashboard("/fxml/DoctorDashboard.fxml", "Doctor Dashboard", event);
-	                break;
-	            case "Receptionist":
-	                initializeDashboard("/fxml/ReceptionistDashboard.fxml", "Receptionist Dashboard", event);
-	                break;
-	            case "Patient":
-	                initializeDashboard("/fxml/PatientDashboard.fxml", "Patient Dashboard", event);
-	                break;
-	            default:
-	                warning.setText("Please, fill the form completely to proceed.");
-	        }
-	    } catch (SQLException e) {
-	        e.printStackTrace();
-	    }
+		try {
+			switch (type.getValue()) {
+			case "Admin":
+				initializeDashboard("/fxml/AdminDashboard.fxml", "Admin Dashboard", event);
+				break;
+			case "Doctor":
+				initializeDashboard("/fxml/DoctorDashboard.fxml", "Doctor Dashboard", event);
+				break;
+			case "Receptionist":
+				initializeDashboard("/fxml/ReceptionistDashboard.fxml", "Receptionist Dashboard", event);
+				break;
+			case "Patient":
+				initializeDashboard("/fxml/PatientDashboard.fxml", "Patient Dashboard", event);
+				break;
+			default:
+				warning.setText("Please, fill the form completely to proceed.");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
-	
-	private void initializeDashboard(String dashboardFXML, String dashboardTitle, ActionEvent event) throws IOException, SQLException {
-	    if (authentication.isLogin(username.getText(), password.getText(), type.getValue())) {
-	        ((Node) event.getSource()).getScene().getWindow().hide();
-	        Stage stage = new Stage();
-	        FXMLLoader loader = new FXMLLoader(getClass().getResource(dashboardFXML));
-	        Pane root = loader.load();
-	        Scene scene = new Scene(root);
 
-	        preparedStatement = conn.prepareStatement(SqlQueries.GET_NAME_QUERY);
-	        preparedStatement.setString(1, username.getText());
-	        ResultSet resultSet = preparedStatement.executeQuery();
+	private void initializeDashboard(String dashboardFXML, String dashboardTitle, ActionEvent event)
+			throws IOException, SQLException {
+		if (authentication.isLogin(username.getText(), password.getText(), type.getValue())) {
+			((Node) event.getSource()).getScene().getWindow().hide();
+			Stage stage = new Stage();
+			FXMLLoader loader = new FXMLLoader(getClass().getResource(dashboardFXML));
+			Pane root = loader.load();
+			Scene scene = new Scene(root);
 
-	        AdminDashboard adminDashboard = (AdminDashboard) loader.getController();
-	        adminDashboard.userInfo(resultSet.getString("fullname"), username.getText(), type.getValue());
+			preparedStatement = conn.prepareStatement(SqlQueries.GET_NAME_QUERY);
+			preparedStatement.setString(1, username.getText());
+			ResultSet resultSet = preparedStatement.executeQuery();
 
-	        stage.setScene(scene);
-	        stage.setTitle(dashboardTitle);
-	        stage.getIcons().add(new Image("logo.png"));
-	        stage.initStyle(StageStyle.UNDECORATED);
-	        stage.setMinHeight(864);
-	        stage.setMinWidth(1200);
-	        stage.setMaximized(true);
-	        stage.show();
+			AdminDashboard adminDashboard = (AdminDashboard) loader.getController();
+			adminDashboard.userInfo(resultSet.getString("fullname"), username.getText(), type.getValue());
 
-	        conn.close();
-	    } else {
-	        warning.setText("Username and Password are Incorrect!");
-	    }
+			stage.setScene(scene);
+			stage.setTitle(dashboardTitle);
+			stage.getIcons().add(new Image("logo.png"));
+			stage.initStyle(StageStyle.UNDECORATED);
+			stage.setMinHeight(864);
+			stage.setMinWidth(1200);
+			stage.setMaximized(true);
+			stage.show();
+
+			conn.close();
+		} else {
+			warning.setText("Username and Password are Incorrect!");
+		}
 	}
 
 	public void signupToggle() {
-		System.out.println("Sign Up");
+		loginVBox.setVisible(false);
+		signupVBox.setVisible(true);
 	}
-	
+
 	public void loginToggle() {
-		System.out.println("Login");
+		loginVBox.setVisible(true);
+		signupVBox.setVisible(false);
 	}
-	
+
 	public void userSignup(ActionEvent event) throws SQLException, IOException {
-		System.out.println("User Sign Up");
+		if (!signFullname.getText().isEmpty() && !signUsername.getText().isEmpty() && !signPassword.getText().isEmpty()) {
+			authentication.onSignup(signFullname.getText(), signUsername.getText(), signPassword.getText());
+
+			((Node) event.getSource()).getScene().getWindow().hide();
+
+			Stage stage = new Stage();
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Main.fxml"));
+			Pane root;
+			try {
+				root = loader.load();
+				Scene scene = new Scene(root);
+				stage.setScene(scene);
+				stage.setTitle("Hospital Management System");
+				stage.setResizable(false);
+				stage.show();
+
+				conn.close();
+			} catch (IOException e) {
+				System.out.println("Error: " + e);
+			}
+		} else {
+			warning.setText("Please, fill the form completely to proceed.");
+		}
 	}
 
 }
