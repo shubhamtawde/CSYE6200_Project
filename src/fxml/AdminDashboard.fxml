@@ -17,7 +17,7 @@
 
 <BorderPane fx:id="borderPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="admin.AdminDashboard">
    <top>
-      <Label alignment="CENTER" maxHeight="70.0" maxWidth="1564.0" prefHeight="60.0" prefWidth="1526.0" style="-fx-background-color: #000;" text="Massachusetts General Hospital" textFill="WHITE" BorderPane.alignment="CENTER">
+      <Label alignment="CENTER" maxHeight="70.0" maxWidth="1564.0" prefHeight="60.0" prefWidth="1526.0" style="-fx-background-color: #5C6BC0;" text="Massachusetts General Hospital" textFill="WHITE" BorderPane.alignment="CENTER">
          <font>
             <Font name="AppleGothic Regular" size="48.0" />
          </font>
@@ -32,17 +32,17 @@
                      <children>
                         <Label prefHeight="30.0" prefWidth="189.0" text="Name:" textFill="WHITE">
                            <font>
-                              <Font size="20.0" />
+                              <Font name="AppleGothic Regular" size="20.0" />
                            </font>
                         </Label>
                         <Label prefHeight="30.0" prefWidth="189.0" text="User:" textFill="WHITE">
                            <font>
-                              <Font size="20.0" />
+                              <Font name="AppleGothic Regular" size="20.0" />
                            </font>
                         </Label>
                         <Label prefHeight="30.0" prefWidth="189.0" text="Type:" textFill="WHITE">
                            <font>
-                              <Font size="20.0" />
+                              <Font name="AppleGothic Regular" size="20.0" />
                            </font>
                         </Label>
                      </children>
@@ -54,17 +54,17 @@
                      <children>
                         <Label fx:id="nameLabel" prefHeight="30.0" prefWidth="189.0" textFill="WHITE">
                            <font>
-                              <Font size="20.0" />
+                              <Font name="AppleGothic Regular" size="20.0" />
                            </font>
                         </Label>
                         <Label fx:id="username" prefHeight="30.0" prefWidth="189.0" textFill="WHITE">
                            <font>
-                              <Font size="20.0" />
+                              <Font name="AppleGothic Regular" size="20.0" />
                            </font>
                         </Label>
                         <Label fx:id="accountType" prefHeight="30.0" prefWidth="189.0" textFill="WHITE">
                            <font>
-                              <Font size="20.0" />
+                              <Font name="AppleGothic Regular" size="20.0" />
                            </font>
                         </Label>
                         <Button mnemonicParsing="false" onAction="#logout" prefWidth="100.0" text="Logout">
@@ -86,7 +86,7 @@
                <children>
                   <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#showUserList" text="All Users">
                      <font>
-                        <Font size="24.0" />
+                        <Font name="AppleGothic Regular" size="24.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -94,7 +94,7 @@
                   </Button>
                   <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#showAdminList" text="Admin">
                      <font>
-                        <Font size="24.0" />
+                        <Font name="AppleGothic Regular" size="24.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -102,15 +102,7 @@
                   </Button>
                   <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#showDoctorList" text="Doctor">
                      <font>
-                        <Font size="24.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#showReceptionistList" text="Receptionist">
-                     <font>
-                        <Font size="24.0" />
+                        <Font name="AppleGothic Regular" size="24.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -118,7 +110,7 @@
                   </Button>
                   <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#showPatientList" text="Patient">
                      <font>
-                        <Font size="24.0" />
+                        <Font name="AppleGothic Regular" size="24.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -126,7 +118,7 @@
                   </Button>
                   <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#showWorkerList" text="Worker">
                      <font>
-                        <Font size="24.0" />
+                        <Font name="AppleGothic Regular" size="24.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -147,12 +139,12 @@
                <children>
                   <Label prefHeight="18.0" prefWidth="100.0" text="Username:">
                      <font>
-                        <Font size="16.0" />
+                        <Font name="AppleGothic Regular" size="16.0" />
                      </font>
                   </Label>
                   <Label prefHeight="18.0" prefWidth="100.0" text="Password:">
                      <font>
-                        <Font size="16.0" />
+                        <Font name="AppleGothic Regular" size="16.0" />
                      </font>
                      <VBox.margin>
                         <Insets top="2.0" />
@@ -160,7 +152,7 @@
                   </Label>
                   <Label prefHeight="18.0" prefWidth="100.0" text="Full Name:">
                      <font>
-                        <Font size="16.0" />
+                        <Font name="AppleGothic Regular" size="16.0" />
                      </font>
                      <VBox.margin>
                         <Insets top="2.0" />
@@ -168,12 +160,12 @@
                   </Label>
                   <Label layoutX="15.0" layoutY="135.0" prefHeight="18.0" prefWidth="100.0" text="Gender:">
                      <font>
-                        <Font size="16.0" />
+                        <Font name="AppleGothic Regular" size="16.0" />
                      </font>
                   </Label>
                   <Label prefHeight="18.0" prefWidth="100.0" text="Email:">
                      <font>
-                        <Font size="16.0" />
+                        <Font name="AppleGothic Regular" size="16.0" />
                      </font>
                      <VBox.margin>
                         <Insets top="2.0" />
@@ -181,7 +173,7 @@
                   </Label>
                   <Label layoutX="15.0" layoutY="178.0" prefHeight="18.0" prefWidth="100.0" text="Phone:">
                      <font>
-                        <Font size="16.0" />
+                        <Font name="AppleGothic Regular" size="16.0" />
                      </font>
                      <VBox.margin>
                         <Insets top="2.0" />
@@ -189,12 +181,12 @@
                   </Label>
                   <Label layoutX="15.0" layoutY="218.0" prefHeight="18.0" prefWidth="100.0" text="Address:">
                      <font>
-                        <Font size="16.0" />
+                        <Font name="AppleGothic Regular" size="16.0" />
                      </font>
                   </Label>
                   <Label layoutX="15.0" layoutY="258.0" prefHeight="18.0" prefWidth="100.0" text="DOB:">
                      <font>
-                        <Font size="16.0" />
+                        <Font name="AppleGothic Regular" size="16.0" />
                      </font>
                      <VBox.margin>
                         <Insets top="2.0" />
@@ -202,7 +194,7 @@
                   </Label>
                   <Label prefHeight="18.0" prefWidth="100.0" text="Type:">
                      <font>
-                        <Font size="16.0" />
+                        <Font name="AppleGothic Regular" size="16.0" />
                      </font>
                      <VBox.margin>
                         <Insets top="2.0" />
@@ -210,7 +202,7 @@
                   </Label>
                   <Label prefHeight="18.0" prefWidth="100.0" text="Enroll:">
                      <font>
-                        <Font size="16.0" />
+                        <Font name="AppleGothic Regular" size="16.0" />
                      </font>
                      <VBox.margin>
                         <Insets />
@@ -218,7 +210,7 @@
                   </Label>
                   <Label layoutX="15.0" layoutY="420.0" prefHeight="18.0" prefWidth="100.0" text="Qualification:">
                      <font>
-                        <Font size="16.0" />
+                        <Font name="AppleGothic Regular" size="16.0" />
                      </font>
                      <VBox.margin>
                         <Insets top="2.0" />
@@ -226,7 +218,7 @@
                   </Label>
                   <Label layoutX="15.0" layoutY="467.0" prefHeight="18.0" prefWidth="100.0" text="Expertise:">
                      <font>
-                        <Font size="16.0" />
+                        <Font name="AppleGothic Regular" size="16.0" />
                      </font>
                   </Label>
                </children>
@@ -234,40 +226,40 @@
                   <Insets left="10.0" />
                </padding>
             </VBox>
-            <VBox layoutX="105.0" prefHeight="542.0" prefWidth="270.0" spacing="6.0">
+            <VBox layoutX="105.0" prefHeight="542.0" prefWidth="258.0" spacing="9.0">
                <padding>
                   <Insets left="5.0" right="5.0" top="6.0" />
                </padding>
                <children>
                   <TextField fx:id="tfUsername" maxWidth="600.0" prefHeight="35.0" promptText="Username">
                      <font>
-                        <Font size="15.0" />
+                        <Font name="AppleGothic Regular" size="15.0" />
                      </font>
                   </TextField>
                   <PasswordField fx:id="tfPassword" maxWidth="600.0" prefHeight="35.0" prefWidth="286.0" promptText="Password">
                      <font>
-                        <Font size="15.0" />
+                        <Font name="AppleGothic Regular" size="15.0" />
                      </font>
                   </PasswordField>
                   <TextField fx:id="tfFullname" maxWidth="600.0" prefHeight="35.0" promptText="Full Name">
                      <font>
-                        <Font size="15.0" />
+                        <Font name="AppleGothic Regular" size="15.0" />
                      </font>
                   </TextField>
                   <ComboBox fx:id="tfGender" maxWidth="1.7976931348623157E308" prefHeight="35.0" promptText="Gender" />
                   <TextField fx:id="tfEmail" maxWidth="600.0" prefHeight="35.0" promptText="Email">
                      <font>
-                        <Font size="15.0" />
+                        <Font name="AppleGothic Regular" size="15.0" />
                      </font>
                   </TextField>
                   <TextField fx:id="tfPhone" layoutX="15.0" layoutY="176.0" maxWidth="600.0" prefHeight="35.0" promptText="Phone Number">
                      <font>
-                        <Font size="15.0" />
+                        <Font name="AppleGothic Regular" size="15.0" />
                      </font>
                   </TextField>
                   <TextField fx:id="tfAddress" layoutX="15.0" layoutY="216.0" maxWidth="600.0" prefHeight="35.0" promptText="Address">
                      <font>
-                        <Font size="15.0" />
+                        <Font name="AppleGothic Regular" size="15.0" />
                      </font>
                   </TextField>
                   <DatePicker fx:id="tfDOB" maxWidth="600.0" prefHeight="35.0" promptText="Date of Birth" />
@@ -275,20 +267,23 @@
                   <DatePicker fx:id="tfEnroll" layoutX="15.0" layoutY="296.0" maxWidth="600.0" prefHeight="35.0" promptText="Enrollment Date" />
                   <TextField fx:id="tfQualification" maxWidth="600.0" prefHeight="35.0" promptText="Qualification">
                      <font>
-                        <Font size="15.0" />
+                        <Font name="AppleGothic Regular" size="15.0" />
                      </font>
                   </TextField>
                   <TextField fx:id="tfExpertise" layoutX="15.0" layoutY="472.0" maxWidth="600.0" prefHeight="35.0" promptText="Expertise">
                      <font>
-                        <Font size="15.0" />
+                        <Font name="AppleGothic Regular" size="15.0" />
                      </font>
                   </TextField>
                </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
             </VBox>
             <VBox layoutX="49.0" layoutY="534.0" prefHeight="244.0" prefWidth="280.0" spacing="6.0">
                <children>
                   <Label fx:id="warning" alignment="CENTER" prefHeight="18.0" prefWidth="283.0" textFill="RED" />
-                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#setEmpty" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: black;" text="Reset" textFill="WHITE" VBox.vgrow="ALWAYS">
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#setEmpty" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #7E57C2;" text="Reset" textFill="WHITE" VBox.vgrow="ALWAYS">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -296,23 +291,12 @@
                         <Insets left="10.0" right="10.0" />
                      </VBox.margin>
                      <font>
-                        <Font size="18.0" />
+                        <Font name="AppleGothic Regular" size="18.0" />
                      </font>
                   </Button>
-                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onInsert" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #66ff00;" text="Insert" textFill="WHITE" VBox.vgrow="ALWAYS">
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onInsert" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #4DB6AC;" text="Insert" textFill="WHITE" VBox.vgrow="ALWAYS">
                      <font>
-                        <Font size="18.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <VBox.margin>
-                        <Insets left="10.0" right="10.0" />
-                     </VBox.margin>
-                  </Button>
-                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onUpdate" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: blue;" text="Update" textFill="WHITE" VBox.vgrow="ALWAYS">
-                     <font>
-                        <Font size="18.0" />
+                        <Font name="AppleGothic Regular" size="18.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -321,9 +305,20 @@
                         <Insets left="10.0" right="10.0" />
                      </VBox.margin>
                   </Button>
-                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onDelete" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: red;" text="Delete" textFill="WHITE" VBox.vgrow="ALWAYS">
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onUpdate" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #64B5F6;" text="Update" textFill="WHITE" VBox.vgrow="ALWAYS">
                      <font>
-                        <Font size="18.0" />
+                        <Font name="AppleGothic Regular" size="18.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onDelete" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #DD2C00;" text="Delete" textFill="WHITE" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="AppleGothic Regular" size="18.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="HAND" />
