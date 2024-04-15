@@ -2,17 +2,31 @@ package application;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import admin.AdminDashboard;
+import database.Authentication;
+import database.DB;
+import database.SqlQueries;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class LoginController implements Initializable {
 	
@@ -29,13 +43,27 @@ public class LoginController implements Initializable {
 	
 	private String[] accountType = {"Admin", "Receptionist", "Doctor", "Patient"};
 	
+	Authentication authentication = new Authentication();
+	
+	Connection conn;
+	
+	PreparedStatement preparedStatement = null;
+	
 	public LoginController() {
-		System.out.println("Login Controller iniatilize");
+		conn = DB.DBConnection();
+		if(conn == null) 
+		{
+			System.exit(1);
+		}
+		
+		if(!authentication.isDBConnected())
+		{
+			warning.setText("Database not Connected");
+		}
 	}
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		
 		
 		signupVBox.setVisible(false);
 		
@@ -44,9 +72,58 @@ public class LoginController implements Initializable {
 	}
 	
 	public void userLogin(ActionEvent event) throws IOException {
-		System.out.println("User Login");
+	    try {
+	        switch (type.getValue()) {
+	            case "Admin":
+	                initializeDashboard("/fxml/AdminDashboard.fxml", "Admin Dashboard", event);
+	                break;
+	            case "Doctor":
+	                initializeDashboard("/fxml/DoctorDashboard.fxml", "Doctor Dashboard", event);
+	                break;
+	            case "Receptionist":
+	                initializeDashboard("/fxml/ReceptionistDashboard.fxml", "Receptionist Dashboard", event);
+	                break;
+	            case "Patient":
+	                initializeDashboard("/fxml/PatientDashboard.fxml", "Patient Dashboard", event);
+	                break;
+	            default:
+	                warning.setText("Please, fill the form completely to proceed.");
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
 	}
 	
+	private void initializeDashboard(String dashboardFXML, String dashboardTitle, ActionEvent event) throws IOException, SQLException {
+	    if (authentication.isLogin(username.getText(), password.getText(), type.getValue())) {
+	        ((Node) event.getSource()).getScene().getWindow().hide();
+	        Stage stage = new Stage();
+	        FXMLLoader loader = new FXMLLoader(getClass().getResource(dashboardFXML));
+	        Pane root = loader.load();
+	        Scene scene = new Scene(root);
+
+	        preparedStatement = conn.prepareStatement(SqlQueries.GET_NAME_QUERY);
+	        preparedStatement.setString(1, username.getText());
+	        ResultSet resultSet = preparedStatement.executeQuery();
+
+	        AdminDashboard adminDashboard = (AdminDashboard) loader.getController();
+	        adminDashboard.userInfo(resultSet.getString("fullname"), username.getText(), type.getValue());
+
+	        stage.setScene(scene);
+	        stage.setTitle(dashboardTitle);
+	        stage.getIcons().add(new Image("logo.png"));
+	        stage.initStyle(StageStyle.UNDECORATED);
+	        stage.setMinHeight(864);
+	        stage.setMinWidth(1200);
+	        stage.setMaximized(true);
+	        stage.show();
+
+	        conn.close();
+	    } else {
+	        warning.setText("Username and Password are Incorrect!");
+	    }
+	}
+
 	public void signupToggle() {
 		System.out.println("Sign Up");
 	}
