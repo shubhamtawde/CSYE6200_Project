@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
+import application.Dashboard;
 import database.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -28,7 +29,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 
-public class AdminDashboard implements Initializable {
+public class AdminDashboard implements Initializable, Dashboard {
 	@FXML
 	private BorderPane borderPane;
 
@@ -84,6 +85,7 @@ public class AdminDashboard implements Initializable {
 		}
 	}
 
+	@Override
 	public void userInfo(String name, String user, String type) {
 		username.setText(user);
 		accountType.setText(type);
@@ -92,6 +94,7 @@ public class AdminDashboard implements Initializable {
 		userString = user;
 	}
 
+	@Override
 	public void logout(@SuppressWarnings("exports") ActionEvent event) {
 		authentication.logoutFunction(event);
 	}
