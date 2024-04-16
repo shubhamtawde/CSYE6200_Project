@@ -8,7 +8,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-import admin.AdminDashboard;
 import database.Authentication;
 import database.DB;
 import database.SqlQueries;
@@ -105,8 +104,9 @@ public class LoginController implements Initializable {
 			preparedStatement.setString(1, username.getText());
 			ResultSet resultSet = preparedStatement.executeQuery();
 
-			AdminDashboard adminDashboard = (AdminDashboard) loader.getController();
-			adminDashboard.userInfo(resultSet.getString("fullname"), username.getText(), type.getValue());
+			// Use the Dashboard interface to interact with the dashboard controller
+			Dashboard dashboard = loader.getController();
+			dashboard.userInfo(resultSet.getString("fullname"), username.getText(), type.getValue());
 
 			stage.setScene(scene);
 			stage.setTitle(dashboardTitle);
@@ -134,7 +134,8 @@ public class LoginController implements Initializable {
 	}
 
 	public void userSignup(ActionEvent event) throws SQLException, IOException {
-		if (!signFullname.getText().isEmpty() && !signUsername.getText().isEmpty() && !signPassword.getText().isEmpty()) {
+		if (!signFullname.getText().isEmpty() && !signUsername.getText().isEmpty()
+				&& !signPassword.getText().isEmpty()) {
 			authentication.onSignup(signFullname.getText(), signUsername.getText(), signPassword.getText());
 
 			((Node) event.getSource()).getScene().getWindow().hide();
