@@ -4,6 +4,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import application.Dashboard;
 import application.Profile;
 import database.*;
 import javafx.event.ActionEvent;
@@ -13,7 +14,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 
-public class PatientDashboard implements Initializable{
+public class PatientDashboard implements Initializable, Dashboard {
 	@FXML
 	private Label username, accountType, nameLabel;
 	
@@ -25,6 +26,7 @@ public class PatientDashboard implements Initializable{
 	String userString = "";
 	String fullname = "";
 	
+	@Override
 	public void userInfo(String name, String user, String type) {
 		username.setText(user);
 		accountType.setText(type);
@@ -59,6 +61,7 @@ public class PatientDashboard implements Initializable{
 		profile.getUserInfo(userString);
 	}
 	
+	@Override
 	public void logout(@SuppressWarnings("exports") ActionEvent event) {
 		authentication.logoutFunction(event);
 	}
