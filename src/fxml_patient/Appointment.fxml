@@ -62,7 +62,7 @@
                   <Insets bottom="30.0" top="10.0" />
                </VBox.margin>
             </Label>
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#setEmpty" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: black;" text="Reset" textFill="WHITE" VBox.vgrow="ALWAYS">
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#setEmpty" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #7E57C2;" text="Reset" textFill="WHITE" VBox.vgrow="ALWAYS">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -70,13 +70,13 @@
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
                <font>
-                  <Font name="AppleGothic Regular" size="20.0" />
+                  <Font name="AppleGothic Regular" size="18.0" />
                </font>
             </Button>
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onInsert" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: #66ff00;" text="Submit" textFill="WHITE" VBox.vgrow="ALWAYS">
-               <font>
-                  <Font name="AppleGothic Regular" size="20.0" />
-               </font>
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onInsert" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #4DB6AC;" text="Insert" textFill="WHITE" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="AppleGothic Regular" size="18.0" />
+                     </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -84,10 +84,10 @@
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
             </Button>
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onUpdate" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: blue;" text="Update" textFill="WHITE" VBox.vgrow="ALWAYS">
-               <font>
-                  <Font name="AppleGothic Regular" size="20.0" />
-               </font>
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onUpdate" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #64B5F6;" text="Update" textFill="WHITE" VBox.vgrow="ALWAYS">
+                     <font>
+                        <Font name="AppleGothic Regular" size="18.0" />
+                     </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -95,12 +95,12 @@
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
             </Button>
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onDelete" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: red;" text="Remove" textFill="WHITE" VBox.vgrow="ALWAYS">
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onDelete" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #DD2C00;" text="Delete" textFill="WHITE" VBox.vgrow="ALWAYS">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
                <font>
-                  <Font name="AppleGothic Regular" size="20.0" />
+                  <Font name="AppleGothic Regular" size="18.0" />
                </font>
                <VBox.margin>
                   <Insets left="10.0" right="10.0" />

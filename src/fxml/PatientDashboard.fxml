@@ -7,33 +7,14 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderPane" prefHeight="600.0" prefWidth="958.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="patient.PatientDashboard">
+<BorderPane fx:id="borderPane" prefHeight="600.0" prefWidth="958.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="patient.PatientDashboard">
    <top>
-      <Label alignment="CENTER" prefHeight="70.0" prefWidth="1564.0" style="-fx-background-color: #cffdff;" text="Massachusetts General Hospital" BorderPane.alignment="CENTER">
+      <Label alignment="CENTER" prefHeight="70.0" prefWidth="1564.0" style="-fx-background-color: #5C6BC0;" text="Massachusetts General Hospital" textFill="WHITE" BorderPane.alignment="CENTER">
          <font>
-            <Font name="System Bold" size="48.0" />
+            <Font name="AppleGothic Regular" size="40.0" />
          </font>
-         <textFill>
-            <LinearGradient endX="0.5152671828524757" endY="1.0" startY="0.6412214177255412">
-               <stops>
-                  <Stop>
-                     <color>
-                        <Color red="0.1518518477678299" green="0.4628395140171051" blue="1.0" />
-                     </color>
-                  </Stop>
-                  <Stop offset="1.0">
-                     <color>
-                        <Color red="1.0" />
-                     </color>
-                  </Stop>
-               </stops>
-            </LinearGradient>
-         </textFill>
       </Label>
    </top>
    <right>
