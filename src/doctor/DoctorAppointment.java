@@ -69,7 +69,8 @@ public class DoctorAppointment implements Initializable{
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
 		
-		String queryString = "SELECT * FROM appointment";
+		String queryString = "SELECT * FROM appointment WHERE doctor = '" + usernameString + "'";
+		System.out.println(usernameString);
 		
 		try {
 			preparedStatement = connection.prepareStatement(queryString);
@@ -89,7 +90,8 @@ public class DoctorAppointment implements Initializable{
 						resultSet.getString("AD"), 
 						resultSet.getString("issue"), 
 						resultSet.getString("status"), 
-						resultSet.getString("prescription"));
+						resultSet.getString("prescription"),
+						resultSet.getString("doctor"));
 
 				if(appoints.getStatus().equals("Approved"))
 				{
@@ -113,12 +115,12 @@ public class DoctorAppointment implements Initializable{
 	public void onUpdate() throws SQLException {
 		if(
 				tfGender.getValue() != "Gender" && 
-				tfPhone.getText() != "" && 
-				tfEmail.getText() != "" && 
+				!tfPhone.getText().isEmpty() && 
+				!tfEmail.getText().isEmpty() && 
 				tfDOB.getValue() != null && 
-				tfAddress.getText() != "" && 
+				!tfAddress.getText().isEmpty() && 
 				tfAD.getValue() != null &&
-				tfIssue.getText() != "" &&
+				!tfIssue.getText().isEmpty() &&
 				tfStatus.getValue() != "Status"
 		  )
 		{

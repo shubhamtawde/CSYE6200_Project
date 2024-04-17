@@ -6,6 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import database.AppointmentModel;
@@ -28,59 +31,100 @@ public class PatientAppointment implements Initializable {
 	@FXML
 	private TableColumn<AppointmentModel, Integer> tvID;
 	@FXML
-	private TableColumn<AppointmentModel, String> tvFullname, tvPhone, tvDOB, tvAddress, tvGender, tvEmail, tvAD, tvIssue, tvStatus, tvPrescription;
+	private TableColumn<AppointmentModel, String> tvFullname, tvPhone, tvDOB, tvAddress, tvGender, tvEmail, tvAD,
+			tvIssue, tvStatus, tvPrescription;
 	@FXML
 	private TextField tfAddress, tfEmail, tfIssue, tfStatus, tfPhone;
 	@FXML
 	private DatePicker tfDOB, tfAD;
 	@FXML
-	private ComboBox<String> tfGender;
+	private ComboBox<String> tfGender, tfDoctor;
 	@FXML
 	private Label warning;
+
+	private String[] genders = { "Male", "Female", "Others" };
 	
-	private String[] genders = {"Male", "Female", "Others"};
-	
+	private HashMap<String, String> doctorMap = new HashMap<>();
+
 	PatientDashboard patientDashboard = new PatientDashboard();
-	
+
 	Connection connection = DB.DBConnection();
-	
+
 	String usernameString = "";
 	String fullnameString = "";
-	
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		tfGender.getItems().addAll(genders);
+		try {
+			List<String> doctorList = getDoctors();
+			tfDoctor.getItems().addAll(doctorList);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
-	
+
+	private List<String> getDoctors() throws SQLException {
+		// TODO Auto-generated method stub
+		Connection connection = DB.DBConnection();
+		List<String> doctorList = new ArrayList<>();
+
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+
+		String queryString = "SELECT username, fullname FROM user WHERE type = 'Doctor'";
+
+		try {
+			preparedStatement = connection.prepareStatement(queryString);
+			resultSet = preparedStatement.executeQuery();
+
+			while (resultSet.next()) {
+				doctorMap.put(resultSet.getString("username"), resultSet.getString("fullname"));
+				doctorList.add(resultSet.getString("username"));
+			}
+			
+		} catch (Exception e) {
+			warning.setText("Couldn't Fetch Data");
+		} finally {
+			preparedStatement.close();
+			resultSet.close();
+		}
+		return doctorList;
+	}
+
 	public void onGetUsername(String user, String fullname) {
 		usernameString = user;
 		fullnameString = fullname;
 	}
-	
+
 	@SuppressWarnings("exports")
-	public ObservableList<AppointmentModel> getAppointments(String userName) throws SQLException{
+	public ObservableList<AppointmentModel> getAppointments(String userName) throws SQLException {
 		ObservableList<AppointmentModel> appointments = FXCollections.observableArrayList();
-		
+
 		Connection connection = DB.DBConnection();
-		
+
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
-		
+
 		String queryString = "SELECT * FROM appointment WHERE username = '" + userName + "'";
-		
+
 		try {
 			preparedStatement = connection.prepareStatement(queryString);
 			resultSet = preparedStatement.executeQuery();
-			
-			while(resultSet.next())
-			{
-				AppointmentModel appoints = new AppointmentModel(resultSet.getInt("id"), resultSet.getString("username"), resultSet.getString("fullname"), resultSet.getString("phone"), resultSet.getString("email"), resultSet.getString("gender"), resultSet.getString("DOB"), resultSet.getString("address"), resultSet.getString("AD"), resultSet.getString("issue"), resultSet.getString("status"), resultSet.getString("prescription"));
-				
+
+			while (resultSet.next()) {
+				AppointmentModel appoints = new AppointmentModel(resultSet.getInt("id"),
+						resultSet.getString("username"), resultSet.getString("fullname"), resultSet.getString("phone"),
+						resultSet.getString("email"), resultSet.getString("gender"), resultSet.getString("DOB"),
+						resultSet.getString("address"), resultSet.getString("AD"), resultSet.getString("issue"),
+						resultSet.getString("status"), resultSet.getString("prescription"), resultSet.getString("doctor"));
+
 				appointments.add(appoints);
 			}
-			
+
 			showInTable();
-			
+
 			tv.setItems(appointments);
 		} catch (Exception e) {
 			warning.setText("Couldn't Fetch Data");
@@ -90,85 +134,57 @@ public class PatientAppointment implements Initializable {
 		}
 		return appointments;
 	}
-	
+
 	public void onInsert() throws SQLException {
 		PreparedStatement preparedStatement = null;
 		try {
-			if(
-					tfGender.getValue() != "Gender" && 
-					tfPhone.getText() != "" && 
-					tfEmail.getText() != "" && 
-					tfDOB.getValue() != null && 
-					tfAddress.getText() != "" && 
-					tfAD.getValue() != null &&
-					tfIssue.getText() != ""
-				)
-			{
-				String query = "INSERT INTO appointment(username, fullname, gender, phone, email, dob, address, ad, issue, status) values ("
-						+ "'" + usernameString + "', '" 
-						+ fullnameString + "', '" 
-						+ tfGender.getValue() + "', '" 
-						+ tfPhone.getText() + "', '" 
-						+ tfEmail.getText() + "', '"
-						+ tfDOB.getValue() + "', '"
-						+ tfAddress.getText() + "', '"
-						+ tfAD.getValue() + "', '"
-						+ tfIssue.getText() + "', '"
-						+ "Pending" + "')";
+			if (tfGender.getValue() != "Gender" && !tfPhone.getText().isEmpty() && !tfEmail.getText().isEmpty()
+					&& tfDOB.getValue() != null && !tfAddress.getText().isEmpty() && tfAD.getValue() != null
+					&& !tfIssue.getText().isEmpty() && tfDoctor.getValue() != null) {
+				String query = "INSERT INTO appointment(username, fullname, gender, phone, email, dob, address, ad, issue, status, doctor) values ("
+						+ "'" + usernameString + "', '" + fullnameString + "', '" + tfGender.getValue() + "', '"
+						+ tfPhone.getText() + "', '" + tfEmail.getText() + "', '" + tfDOB.getValue() + "', '"
+						+ tfAddress.getText() + "', '" + tfAD.getValue() + "', '" + tfIssue.getText() + "', '"
+						+ "Pending" + "', '" + tfDoctor.getValue() + "') ";
 
 				preparedStatement = connection.prepareStatement(query);
-				
+
 				preparedStatement.executeUpdate();
-				
+
 				warning.setText("");
-				
+
 				setEmpty();
-				
+
 				ObservableList<AppointmentModel> appointmentsList = getAppointments(usernameString);
-				
+
 				showInTable();
-				
+
 				tv.setItems(appointmentsList);
-		
+
 			} else {
 				warning.setText("Please, fill the form properly.");
 			}
-			
+
 		} catch (Exception e) {
 			warning.setText("Constraint Failed");
 			System.out.println(e.getMessage());
 		} finally {
-			if(preparedStatement != null)
-			{
+			if (preparedStatement != null) {
 				preparedStatement.close();
 			}
 		}
 	}
-	
+
 	public void onUpdate() throws SQLException {
-		if(
-				tfGender.getValue() != "Gender" && 
-				tfPhone.getText() != "" && 
-				tfEmail.getText() != "" && 
-				tfDOB.getValue() != null && 
-				tfAddress.getText() != "" && 
-				tfAD.getValue() != null &&
-				tfIssue.getText() != ""
-		  )
-		{
-			String queryString = "UPDATE appointment SET "
-					+ "gender = ?, "
-					+ "phone = ?, "
-					+ "email = ?, "
-					+ "dob = ?, "
-					+ "address = ?, "
-					+ "ad = ?, "
-					+ "issue = ? "
-					+ "WHERE id = ?";
+		if (tfGender.getValue() != "Gender" && !tfPhone.getText().isEmpty() && !tfEmail.getText().isEmpty()
+				&& tfDOB.getValue() != null && !tfAddress.getText().isEmpty() && tfAD.getValue() != null
+				&& !tfIssue.getText().isEmpty()) {
+			String queryString = "UPDATE appointment SET " + "gender = ?, " + "phone = ?, " + "email = ?, "
+					+ "dob = ?, " + "address = ?, " + "ad = ?, " + "issue = ? " + "WHERE id = ?";
 			PreparedStatement preparedStatement = connection.prepareStatement(queryString);
-			
+
 			AppointmentModel model = tv.getSelectionModel().getSelectedItem();
-			
+
 			preparedStatement.setString(1, tfGender.getValue());
 			preparedStatement.setString(2, tfPhone.getText());
 			preparedStatement.setString(3, tfEmail.getText());
@@ -177,20 +193,19 @@ public class PatientAppointment implements Initializable {
 			preparedStatement.setString(6, tfAD.getValue().toString());
 			preparedStatement.setString(7, tfIssue.getText());
 			preparedStatement.setInt(8, tvID.getCellData(model));
-			
-			if(!model.getStatus().equals("Approved"))
-			{
+
+			if (!model.getStatus().equals("Approved")) {
 				preparedStatement.executeUpdate();
 			}
-			
+
 			warning.setText("");
-			
+
 			setEmpty();
-			
+
 			ObservableList<AppointmentModel> appointmentsList = getAppointments(usernameString);
-			
+
 			showInTable();
-			
+
 			tv.setItems(appointmentsList);
 
 		} else {
@@ -198,26 +213,26 @@ public class PatientAppointment implements Initializable {
 		}
 
 	}
-	
+
 	public void onDelete() throws SQLException {
 		Connection connection = DB.DBConnection();
 		AppointmentModel model = tv.getSelectionModel().getSelectedItem();
-		
+
 		String queryString = "DELETE FROM appointment WHERE id = ?";
 		PreparedStatement preparedStatement = connection.prepareStatement(queryString);
 		preparedStatement.setInt(1, tvID.getCellData(model));
-		
+
 		preparedStatement.executeUpdate();
-		
+
 		setEmpty();
-		
+
 		ObservableList<AppointmentModel> appointmentsList = getAppointments(usernameString);
-		
+
 		showInTable();
-		
+
 		tv.setItems(appointmentsList);
 	}
-	
+
 	public void showInTable() {
 		tvID.setCellValueFactory(new PropertyValueFactory<AppointmentModel, Integer>("id"));
 		tvFullname.setCellValueFactory(new PropertyValueFactory<AppointmentModel, String>("fullname"));
@@ -229,15 +244,14 @@ public class PatientAppointment implements Initializable {
 		tvAddress.setCellValueFactory(new PropertyValueFactory<AppointmentModel, String>("address"));
 		tvAD.setCellValueFactory(new PropertyValueFactory<AppointmentModel, String>("ad"));
 		tvIssue.setCellValueFactory(new PropertyValueFactory<AppointmentModel, String>("issue"));
-		tvStatus.setCellValueFactory(new PropertyValueFactory<AppointmentModel, String>("status"));	
-		tvPrescription.setCellValueFactory(new PropertyValueFactory<AppointmentModel, String>("prescription"));	
+		tvStatus.setCellValueFactory(new PropertyValueFactory<AppointmentModel, String>("status"));
+		tvPrescription.setCellValueFactory(new PropertyValueFactory<AppointmentModel, String>("prescription"));
 	}
-	
+
 	public void handleMouseAction() {
 		AppointmentModel model = tv.getSelectionModel().getSelectedItem();
 		try {
-			if(!model.getStatus().equals("Approved"))
-			{
+			if (!model.getStatus().equals("Approved")) {
 				tfGender.setValue(model.getGender());
 				tfEmail.setText(model.getEmail());
 				tfPhone.setText(model.getPhone());
@@ -247,10 +261,10 @@ public class PatientAppointment implements Initializable {
 				tfIssue.setText(model.getIssue());
 			}
 		} catch (Exception e) {
-			
+
 		}
 	}
-	
+
 	public void setEmpty() {
 		tfAddress.setText("");
 		tfEmail.setText("");
@@ -261,5 +275,5 @@ public class PatientAppointment implements Initializable {
 		tfAD.setValue(null);
 		warning.setText("");
 	}
-	
+
 }
