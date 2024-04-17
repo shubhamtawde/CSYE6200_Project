@@ -4,6 +4,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import application.Dashboard;
 import application.Profile;
 import database.*;
 
@@ -15,7 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 
-public class ReceptionistDashboard implements Initializable{
+public class ReceptionistDashboard implements Initializable, Dashboard {
 	@FXML
 	private Label username, accountType, nameLabel;
 	
