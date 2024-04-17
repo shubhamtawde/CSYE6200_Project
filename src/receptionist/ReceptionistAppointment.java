@@ -77,7 +77,7 @@ public class ReceptionistAppointment implements Initializable{
 			
 			while(resultSet.next())
 			{
-				AppointmentModel appoints = new AppointmentModel(resultSet.getInt("id"), resultSet.getString("username"), resultSet.getString("fullname"), resultSet.getString("phone"), resultSet.getString("email"), resultSet.getString("gender"), resultSet.getString("DOB"), resultSet.getString("address"), resultSet.getString("AD"), resultSet.getString("issue"), resultSet.getString("status"), resultSet.getString("prescription"));
+				AppointmentModel appoints = new AppointmentModel(resultSet.getInt("id"), resultSet.getString("username"), resultSet.getString("fullname"), resultSet.getString("phone"), resultSet.getString("email"), resultSet.getString("gender"), resultSet.getString("DOB"), resultSet.getString("address"), resultSet.getString("AD"), resultSet.getString("issue"), resultSet.getString("status"), resultSet.getString("prescription"), resultSet.getString("doctor"));
 				
 				appointments.add(appoints);
 			}

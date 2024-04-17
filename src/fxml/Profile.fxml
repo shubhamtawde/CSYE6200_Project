@@ -78,47 +78,47 @@
                <children>
                   <Label fx:id="lUsername" maxWidth="1.7976931348623157E308" prefHeight="40.0">
                      <font>
-                        <Font size="24.0" />
+                        <Font name="AppleGothic Regular" size="24.0" />
                      </font>
                   </Label>
                   <Label fx:id="lFullname" maxWidth="1.7976931348623157E308" prefHeight="40.0">
                      <font>
-                        <Font size="24.0" />
+                        <Font name="AppleGothic Regular" size="24.0" />
                      </font>
                   </Label>
                   <Label fx:id="lGender" layoutX="20.0" layoutY="373.0" maxWidth="1.7976931348623157E308" prefHeight="40.0">
                      <font>
-                        <Font size="24.0" />
+                        <Font name="AppleGothic Regular" size="24.0" />
                      </font>
                   </Label>
                   <Label fx:id="lEmail" maxWidth="1.7976931348623157E308" prefHeight="40.0">
                      <font>
-                        <Font size="24.0" />
+                        <Font name="AppleGothic Regular" size="24.0" />
                      </font>
                   </Label>
                   <Label fx:id="lPhone" maxWidth="1.7976931348623157E308" prefHeight="40.0">
                      <font>
-                        <Font size="24.0" />
+                        <Font name="AppleGothic Regular" size="24.0" />
                      </font>
                   </Label>
                   <Label fx:id="lAddress" maxWidth="1.7976931348623157E308" prefHeight="40.0">
                      <font>
-                        <Font size="24.0" />
+                        <Font name="AppleGothic Regular" size="24.0" />
                      </font>
                   </Label>
                   <Label fx:id="lDOB" maxWidth="1.7976931348623157E308" prefHeight="40.0">
                      <font>
-                        <Font size="24.0" />
+                        <Font name="AppleGothic Regular" size="24.0" />
                      </font>
                   </Label>
                   <Label fx:id="lType" maxWidth="1.7976931348623157E308" prefHeight="40.0">
                      <font>
-                        <Font size="24.0" />
+                        <Font name="AppleGothic Regular" size="24.0" />
                      </font>
                   </Label>
                   <Label fx:id="lED" maxWidth="1.7976931348623157E308" prefHeight="40.0">
                      <font>
-                        <Font size="24.0" />
+                        <Font name="AppleGothic Regular" size="24.0" />
                      </font>
                   </Label>
                </children>
@@ -135,7 +135,7 @@
    <bottom>
       <Button mnemonicParsing="false" onAction="#editProfile" style="-fx-background-color: blue;" text="Edit Profile" textFill="WHITE" BorderPane.alignment="CENTER">
          <font>
-            <Font name="System Bold" size="28.0" />
+            <Font name="AppleGothic Regular" size="28.0" />
          </font>
          <BorderPane.margin>
             <Insets bottom="10.0" />
