@@ -13,13 +13,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="doctor.DoctorAppointment">
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="doctor.DoctorAppointment">
    <top>
       <BorderPane maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
          <top>
             <Label alignment="CENTER" maxWidth="1.7976931348623157E308" text="My Appointments" textFill="BLUE" BorderPane.alignment="CENTER">
-               <font>
-                  <Font name="System Bold" size="36.0" />
+         <font>
+            <Font name="AppleGothic Regular" size="40.0" />
                </font>
                <BorderPane.margin>
                   <Insets />
@@ -65,7 +65,7 @@
                   <Insets bottom="100.0" top="10.0" />
                </VBox.margin>
             </Label>
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#setEmpty" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: black;" text="Reset" textFill="WHITE">
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#setEmpty" prefHeight="42.0" prefWidth="263.0" style="-fx-background-color: black;" text="Reset" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -76,7 +76,7 @@
                   <Insets left="10.0" right="10.0" />
                </VBox.margin>
             </Button>
-            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onUpdate" prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: blue;" text="Update" textFill="WHITE" VBox.vgrow="ALWAYS">
+            <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onUpdate" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #64B5F6;" text="Update" textFill="WHITE" VBox.vgrow="ALWAYS">
                <font>
                   <Font size="20.0" />
                </font>

@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="patient.PatientAppointment">
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="patient.PatientAppointment">
    <top>
       <BorderPane maxWidth="1.7976931348623157E308" prefHeight="320.0" prefWidth="696.0" BorderPane.alignment="CENTER">
          <top>
@@ -40,6 +40,7 @@
                   <TableColumn fx:id="tvIssue" prefWidth="75.0" text="Issue" />
                   <TableColumn fx:id="tvStatus" prefWidth="75.0" text="Status" />
                   <TableColumn fx:id="tvPrescription" prefWidth="75.0" text="Prescription" />
+                  <TableColumn fx:id="tvPrescription1" prefWidth="75.0" text="Doctor" />
               </columns>
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -116,41 +117,46 @@
       </VBox>
    </right>
    <left>
-      <VBox spacing="36.0" BorderPane.alignment="CENTER">
+      <VBox spacing="30.0" BorderPane.alignment="CENTER">
          <children>
             <Label prefHeight="18.0" prefWidth="150.0" text="Gender:">
                <font>
-                  <Font name="AppleGothic Regular" size="16.0" />
+                  <Font name="AppleGothic Regular" size="14.0" />
                </font>
             </Label>
             <Label prefHeight="18.0" prefWidth="150.0" text="Phone No:">
                <font>
-                  <Font name="AppleGothic Regular" size="16.0" />
+                  <Font name="AppleGothic Regular" size="14.0" />
                </font>
             </Label>
             <Label prefHeight="18.0" prefWidth="150.0" text="Email:">
                <font>
-                  <Font name="AppleGothic Regular" size="16.0" />
+                  <Font name="AppleGothic Regular" size="14.0" />
                </font>
             </Label>
             <Label prefHeight="18.0" prefWidth="150.0" text="DOB:">
                <font>
-                  <Font name="AppleGothic Regular" size="16.0" />
+                  <Font name="AppleGothic Regular" size="14.0" />
                </font>
             </Label>
             <Label prefHeight="18.0" prefWidth="150.0" text="Address:">
                <font>
-                  <Font name="AppleGothic Regular" size="16.0" />
+                  <Font name="AppleGothic Regular" size="14.0" />
                </font>
             </Label>
             <Label prefHeight="18.0" prefWidth="150.0" text="Appointment Date:">
                <font>
-                  <Font name="AppleGothic Regular" size="16.0" />
+                  <Font name="AppleGothic Regular" size="14.0" />
                </font>
             </Label>
             <Label prefHeight="18.0" prefWidth="150.0" text="Issue:">
                <font>
-                  <Font name="AppleGothic Regular" size="16.0" />
+                  <Font name="AppleGothic Regular" size="14.0" />
+               </font>
+            </Label>
+            <Label prefHeight="18.0" prefWidth="150.0" text="Doctor:">
+               <font>
+                  <Font name="AppleGothic Regular" size="14.0" />
                </font>
             </Label>
          </children>
@@ -163,7 +169,7 @@
       </VBox>
    </left>
    <center>
-      <VBox spacing="15.0" BorderPane.alignment="CENTER">
+      <VBox spacing="10.0" BorderPane.alignment="CENTER">
          <children>
             <ComboBox fx:id="tfGender" maxWidth="1.7976931348623157E308" prefHeight="45.0" promptText="Gender" />
             <TextField fx:id="tfPhone" maxWidth="1.7976931348623157E308" prefHeight="45.0" promptText="Phone Number">
@@ -188,9 +194,10 @@
                   <Font name="AppleGothic Regular" size="15.0" />
                </font>
             </TextField>
+            <ComboBox fx:id="tfDoctor" maxWidth="1.7976931348623157E308" prefHeight="45.0" promptText="Doctor" />
          </children>
          <BorderPane.margin>
-            <Insets bottom="20.0" left="5.0" right="25.0" top="20.0" />
+            <Insets bottom="20.0" left="5.0" right="25.0" top="10.0" />
          </BorderPane.margin>
       </VBox>
    </center>
