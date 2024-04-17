@@ -32,7 +32,7 @@ public class PatientAppointment implements Initializable {
 	private TableColumn<AppointmentModel, Integer> tvID;
 	@FXML
 	private TableColumn<AppointmentModel, String> tvFullname, tvPhone, tvDOB, tvAddress, tvGender, tvEmail, tvAD,
-			tvIssue, tvStatus, tvPrescription;
+			tvIssue, tvStatus, tvPrescription, tvDoctor;
 	@FXML
 	private TextField tfAddress, tfEmail, tfIssue, tfStatus, tfPhone;
 	@FXML
@@ -246,6 +246,7 @@ public class PatientAppointment implements Initializable {
 		tvIssue.setCellValueFactory(new PropertyValueFactory<AppointmentModel, String>("issue"));
 		tvStatus.setCellValueFactory(new PropertyValueFactory<AppointmentModel, String>("status"));
 		tvPrescription.setCellValueFactory(new PropertyValueFactory<AppointmentModel, String>("prescription"));
+		tvDoctor.setCellValueFactory(new PropertyValueFactory<AppointmentModel, String>("doctor"));
 	}
 
 	public void handleMouseAction() {

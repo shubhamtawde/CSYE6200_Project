@@ -16,7 +16,7 @@
    <top>
       <Label alignment="CENTER" prefHeight="70.0" prefWidth="1564.0" style="-fx-background-color: #cffdff;" text="Gautam General Hospital" BorderPane.alignment="CENTER">
          <font>
-            <Font name="System Bold" size="48.0" />
+            <Font name="AppleGothic Regular" size="48.0" />
          </font>
          <textFill>
             <LinearGradient endX="0.5152671828524757" endY="1.0" startY="0.6412214177255412">
@@ -45,17 +45,17 @@
                      <children>
                         <Label prefHeight="30.0" prefWidth="189.0" text="Name:" textFill="WHITE">
                            <font>
-                              <Font size="20.0" />
+                              <Font name="AppleGothic Regular" size="20.0" />
                            </font>
                         </Label>
                         <Label prefHeight="30.0" prefWidth="189.0" text="User:" textFill="WHITE">
                            <font>
-                              <Font size="20.0" />
+                              <Font name="AppleGothic Regular" size="20.0" />
                            </font>
                         </Label>
                         <Label prefHeight="30.0" prefWidth="189.0" text="Type:" textFill="WHITE">
                            <font>
-                              <Font size="20.0" />
+                              <Font name="AppleGothic Regular" size="20.0" />
                            </font>
                         </Label>
                      </children>
@@ -67,17 +67,17 @@
                      <children>
                         <Label fx:id="nameLabel" prefHeight="30.0" prefWidth="189.0" textFill="WHITE">
                            <font>
-                              <Font size="20.0" />
+                              <Font name="AppleGothic Regular" size="20.0" />
                            </font>
                         </Label>
                         <Label fx:id="username" prefHeight="30.0" prefWidth="189.0" textFill="WHITE">
                            <font>
-                              <Font size="20.0" />
+                              <Font name="AppleGothic Regular" size="20.0" />
                            </font>
                         </Label>
                         <Label fx:id="accountType" prefHeight="30.0" prefWidth="189.0" textFill="WHITE">
                            <font>
-                              <Font size="20.0" />
+                              <Font name="AppleGothic Regular" size="20.0" />
                            </font>
                         </Label>
                      </children>
@@ -93,7 +93,7 @@
             </Pane>
             <Button mnemonicParsing="false" onAction="#showProfile" prefHeight="55.0" prefWidth="260.0" text="Profile">
                <font>
-                  <Font size="24.0" />
+                  <Font name="AppleGothic Regular" size="24.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -101,7 +101,7 @@
             </Button>
             <Button mnemonicParsing="false" onAction="#appointmentHandle" prefHeight="55.0" prefWidth="260.0" text="Appointment">
                <font>
-                  <Font size="24.0" />
+                  <Font name="AppleGothic Regular" size="24.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -109,7 +109,7 @@
             </Button>
             <Button fx:id="patientButton" mnemonicParsing="false" onAction="#patientHandle" prefHeight="55.0" prefWidth="260.0" text="Patient">
                <font>
-                  <Font size="24.0" />
+                  <Font name="AppleGothic Regular" size="24.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -117,7 +117,7 @@
             </Button>
             <Button fx:id="workerButton" mnemonicParsing="false" onAction="#workerHandle" prefHeight="55.0" prefWidth="260.0" text="Worker">
                <font>
-                  <Font size="24.0" />
+                  <Font name="AppleGothic Regular" size="24.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
