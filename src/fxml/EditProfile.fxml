@@ -33,33 +33,33 @@
          <children>
             <TextField fx:id="tfUsername" maxWidth="1.7976931348623157E308" prefHeight="35.0" promptText="Username">
                <font>
-                  <Font size="15.0" />
+                  <Font name="AppleGothic Regular" size="15.0" />
                </font>
             </TextField>
             <PasswordField fx:id="tfPassword" maxWidth="1.7976931348623157E308" prefHeight="35.0" prefWidth="286.0" promptText="Password">
                <font>
-                  <Font size="15.0" />
+                  <Font name="AppleGothic Regular" size="15.0" />
                </font>
             </PasswordField>
             <TextField fx:id="tfFullname" maxWidth="1.7976931348623157E308" prefHeight="35.0" promptText="Full Name">
                <font>
-                  <Font size="15.0" />
+                  <Font name="AppleGothic Regular" size="15.0" />
                </font>
             </TextField>
             <ComboBox fx:id="tfGender" maxWidth="1.7976931348623157E308" prefHeight="35.0" promptText="Gender" />
             <TextField fx:id="tfEmail" maxWidth="1.7976931348623157E308" prefHeight="35.0" promptText="Email">
                <font>
-                  <Font size="15.0" />
+                  <Font name="AppleGothic Regular" size="15.0" />
                </font>
             </TextField>
             <TextField fx:id="tfPhone" layoutX="15.0" layoutY="176.0" maxWidth="1.7976931348623157E308" prefHeight="35.0" promptText="Phone Number">
                <font>
-                  <Font size="15.0" />
+                  <Font name="AppleGothic Regular" size="15.0" />
                </font>
             </TextField>
             <TextField fx:id="tfAddress" layoutX="15.0" layoutY="216.0" maxWidth="1.7976931348623157E308" prefHeight="35.0" promptText="Address">
                <font>
-                  <Font size="15.0" />
+                  <Font name="AppleGothic Regular" size="15.0" />
                </font>
             </TextField>
             <DatePicker fx:id="tfDOB" maxWidth="1.7976931348623157E308" prefHeight="35.0" promptText="Date of Birth" />
@@ -70,7 +70,7 @@
             </Label>
             <Button mnemonicParsing="false" onAction="#editProfileAction" style="-fx-background-color: blue;" text="Submit" textFill="WHITE">
                <font>
-                  <Font size="24.0" />
+                  <Font name="AppleGothic Regular" size="24.0" />
                </font>
             </Button>
          </children>
@@ -84,12 +84,12 @@
          <children>
             <Label prefHeight="18.0" prefWidth="100.0" text="Username:">
                <font>
-                  <Font size="16.0" />
+                  <Font name="AppleGothic Regular" size="16.0" />
                </font>
             </Label>
             <Label prefHeight="18.0" prefWidth="100.0" text="Password:">
                <font>
-                  <Font size="16.0" />
+                  <Font name="AppleGothic Regular" size="16.0" />
                </font>
                <VBox.margin>
                   <Insets top="2.0" />
@@ -97,7 +97,7 @@
             </Label>
             <Label prefHeight="18.0" prefWidth="100.0" text="Full Name:">
                <font>
-                  <Font size="16.0" />
+                  <Font name="AppleGothic Regular" size="16.0" />
                </font>
                <VBox.margin>
                   <Insets top="2.0" />
@@ -105,12 +105,12 @@
             </Label>
             <Label layoutX="15.0" layoutY="150.0" prefHeight="18.0" prefWidth="100.0" text="Gender:">
                <font>
-                  <Font size="16.0" />
+                  <Font name="AppleGothic Regular" size="16.0" />
                </font>
             </Label>
             <Label prefHeight="18.0" prefWidth="100.0" text="Email:">
                <font>
-                  <Font size="16.0" />
+                  <Font name="AppleGothic Regular" size="16.0" />
                </font>
                <VBox.margin>
                   <Insets top="2.0" />
@@ -118,7 +118,7 @@
             </Label>
             <Label layoutX="15.0" layoutY="178.0" prefHeight="18.0" prefWidth="100.0" text="Phone:">
                <font>
-                  <Font size="16.0" />
+                  <Font name="AppleGothic Regular" size="16.0" />
                </font>
                <VBox.margin>
                   <Insets top="2.0" />
@@ -126,12 +126,12 @@
             </Label>
             <Label layoutX="15.0" layoutY="218.0" prefHeight="18.0" prefWidth="100.0" text="Address:">
                <font>
-                  <Font size="16.0" />
+                  <Font name="AppleGothic Regular" size="16.0" />
                </font>
             </Label>
             <Label layoutX="15.0" layoutY="258.0" prefHeight="18.0" prefWidth="100.0" text="DOB:">
                <font>
-                  <Font size="16.0" />
+                  <Font name="AppleGothic Regular" size="16.0" />
                </font>
                <VBox.margin>
                   <Insets top="2.0" />
