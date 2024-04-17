@@ -19,7 +19,7 @@
    <top>
       <Label alignment="CENTER" maxHeight="70.0" maxWidth="1564.0" prefHeight="60.0" prefWidth="1526.0" style="-fx-background-color: #5C6BC0;" text="Massachusetts General Hospital" textFill="WHITE" BorderPane.alignment="CENTER">
          <font>
-            <Font name="AppleGothic Regular" size="48.0" />
+            <Font name="AppleGothic Regular" size="40.0" />
          </font>
       </Label>
    </top>
@@ -124,6 +124,14 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#showReceptionistList" text="Receptionist">
+                     <font>
+                        <Font name="AppleGothic Regular" size="24.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
                </children>
             </VBox>
          </children>
@@ -139,17 +147,17 @@
                <children>
                <Label prefHeight="18.0" prefWidth="100.0" text="ID:">
                      <font>
-                        <Font name="AppleGothic Regular" size="16.0" />
+                        <Font name="AppleGothic Regular" size="14.0" />
                      </font>
                   </Label>
                   <Label prefHeight="18.0" prefWidth="100.0" text="Username:">
                      <font>
-                        <Font name="AppleGothic Regular" size="16.0" />
+                        <Font name="AppleGothic Regular" size="14.0" />
                      </font>
                   </Label>
                   <Label prefHeight="18.0" prefWidth="100.0" text="Password:">
                      <font>
-                        <Font name="AppleGothic Regular" size="16.0" />
+                        <Font name="AppleGothic Regular" size="14.0" />
                      </font>
                      <VBox.margin>
                         <Insets top="2.0" />
@@ -157,7 +165,7 @@
                   </Label>
                   <Label prefHeight="18.0" prefWidth="100.0" text="Full Name:">
                      <font>
-                        <Font name="AppleGothic Regular" size="16.0" />
+                        <Font name="AppleGothic Regular" size="14.0" />
                      </font>
                      <VBox.margin>
                         <Insets top="2.0" />
@@ -165,12 +173,12 @@
                   </Label>
                   <Label layoutX="15.0" layoutY="135.0" prefHeight="18.0" prefWidth="100.0" text="Gender:">
                      <font>
-                        <Font name="AppleGothic Regular" size="16.0" />
+                        <Font name="AppleGothic Regular" size="14.0" />
                      </font>
                   </Label>
                   <Label prefHeight="18.0" prefWidth="100.0" text="Email:">
                      <font>
-                        <Font name="AppleGothic Regular" size="16.0" />
+                        <Font name="AppleGothic Regular" size="14.0" />
                      </font>
                      <VBox.margin>
                         <Insets top="2.0" />
@@ -178,7 +186,7 @@
                   </Label>
                   <Label layoutX="15.0" layoutY="178.0" prefHeight="18.0" prefWidth="100.0" text="Phone:">
                      <font>
-                        <Font name="AppleGothic Regular" size="16.0" />
+                        <Font name="AppleGothic Regular" size="14.0" />
                      </font>
                      <VBox.margin>
                         <Insets top="2.0" />
@@ -186,12 +194,12 @@
                   </Label>
                   <Label layoutX="15.0" layoutY="218.0" prefHeight="18.0" prefWidth="100.0" text="Address:">
                      <font>
-                        <Font name="AppleGothic Regular" size="16.0" />
+                        <Font name="AppleGothic Regular" size="14.0" />
                      </font>
                   </Label>
                   <Label layoutX="15.0" layoutY="258.0" prefHeight="18.0" prefWidth="100.0" text="DOB:">
                      <font>
-                        <Font name="AppleGothic Regular" size="16.0" />
+                        <Font name="AppleGothic Regular" size="14.0" />
                      </font>
                      <VBox.margin>
                         <Insets top="2.0" />
@@ -199,7 +207,7 @@
                   </Label>
                   <Label prefHeight="18.0" prefWidth="100.0" text="Type:">
                      <font>
-                        <Font name="AppleGothic Regular" size="16.0" />
+                        <Font name="AppleGothic Regular" size="14.0" />
                      </font>
                      <VBox.margin>
                         <Insets top="2.0" />
@@ -207,7 +215,7 @@
                   </Label>
                   <Label prefHeight="18.0" prefWidth="100.0" text="Enroll:">
                      <font>
-                        <Font name="AppleGothic Regular" size="16.0" />
+                        <Font name="AppleGothic Regular" size="14.0" />
                      </font>
                      <VBox.margin>
                         <Insets />
@@ -215,7 +223,7 @@
                   </Label>
                   <Label layoutX="15.0" layoutY="420.0" prefHeight="18.0" prefWidth="100.0" text="Qualification:">
                      <font>
-                        <Font name="AppleGothic Regular" size="16.0" />
+                        <Font name="AppleGothic Regular" size="14.0" />
                      </font>
                      <VBox.margin>
                         <Insets top="2.0" />
@@ -223,7 +231,7 @@
                   </Label>
                   <Label layoutX="15.0" layoutY="467.0" prefHeight="18.0" prefWidth="100.0" text="Expertise:">
                      <font>
-                        <Font name="AppleGothic Regular" size="16.0" />
+                        <Font name="AppleGothic Regular" size="14.0" />
                      </font>
                   </Label>
                </children>
@@ -231,7 +239,7 @@
                   <Insets left="10.0" />
                </padding>
             </VBox>
-            <VBox layoutX="105.0" prefHeight="542.0" prefWidth="258.0" spacing="14.0">
+            <VBox layoutX="105.0" prefHeight="542.0" prefWidth="258.0" spacing="12.0">
                <padding>
                   <Insets left="5.0" right="5.0" top="6.0" />
                </padding>
@@ -290,7 +298,7 @@
                   <Insets />
                </opaqueInsets>
             </VBox>
-            <VBox layoutX="49.0" layoutY="554.0" prefHeight="203.0" prefWidth="280.0" spacing="6.0">
+            <VBox layoutX="49.0" layoutY="539.0" prefHeight="203.0" prefWidth="280.0" spacing="6.0">
                <children>
                   <Label fx:id="warning" alignment="CENTER" prefHeight="18.0" prefWidth="283.0" textFill="RED" />
                   <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#setEmpty" prefHeight="30.0" prefWidth="200.0" style="-fx-background-color: #7E57C2;" text="Reset" textFill="WHITE" VBox.vgrow="ALWAYS">

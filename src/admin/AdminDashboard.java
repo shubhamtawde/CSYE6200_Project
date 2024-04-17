@@ -171,6 +171,14 @@ public class AdminDashboard implements Initializable, Dashboard {
 
 		tv.setItems(patientList);
 	}
+	
+	public void showReceptionistList() throws SQLException {
+		ObservableList<UserModel> receptionistList = getUserList("Receptionist");
+		
+		showInTable();
+		
+		tv.setItems(receptionistList);
+	}
 
 	public void showWorkerList() throws SQLException {
 		ObservableList<UserModel> workerList = getUserList("Worker");
@@ -345,6 +353,8 @@ public class AdminDashboard implements Initializable, Dashboard {
 			showAdminList();
 		} else if (tfType.getValue() == "Doctor") {
 			showDoctorList();
+		} else if(tfType.getValue() == "Receptionist") {
+			showReceptionistList();
 		} else if (tfType.getValue() == "Worker") {
 			showWorkerList();
 		} else if (tfType.getValue() == "Patient") {
