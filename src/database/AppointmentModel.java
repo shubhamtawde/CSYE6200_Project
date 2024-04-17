@@ -13,8 +13,10 @@ public class AppointmentModel {
 	private String issue;
 	private String status;
 	private String prescription;
+	private String doctor;
+
 	public AppointmentModel(int id, String username, String fullname, String phone, String email, String gender,
-			String dob, String address, String ad, String issue, String status, String prescription) {
+			String dob, String address, String ad, String issue, String status, String prescription, String doctor) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -28,42 +30,59 @@ public class AppointmentModel {
 		this.issue = issue;
 		this.status = status;
 		this.prescription = prescription;
+		this.doctor = doctor;
 	}
+
 	public int getId() {
 		return id;
 	}
+
 	public String getUsername() {
 		return username;
 	}
+
 	public String getFullname() {
 		return fullname;
 	}
+
 	public String getPhone() {
 		return phone;
 	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public String getGender() {
 		return gender;
 	}
+
 	public String getDob() {
 		return dob;
 	}
+
 	public String getAddress() {
 		return address;
 	}
+
 	public String getAd() {
 		return ad;
 	}
+
 	public String getIssue() {
 		return issue;
 	}
+
 	public String getStatus() {
 		return status;
 	}
+
 	public String getPrescription() {
 		return prescription;
 	}
-	
+
+	public String getDoctor() {
+		return doctor;
+	}
+
 }
